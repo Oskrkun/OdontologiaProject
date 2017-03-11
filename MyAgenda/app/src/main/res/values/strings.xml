@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MI Agenda</string>
+    <string name="title_pacientes">Pacientes</string>
+    <string name="title_consultas">Consultas</string>
+</resources>
