@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+
+            <TextView
+                android:id="@+id/txtTitle"
+                android:text="Ingrese los datos del paciente"
+                android:textColor="#390371"
+                android:textSize="24sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="8dp" />
+
+            <EditText
+                android:id="@+id/txtNombre"
+                android:inputType="textPersonName"
+                android:hint="Nombre..."
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/txtTitle"
+                android:layout_marginTop="64dp"
+                android:ems="10" />
+
+            <EditText
+                android:id="@+id/txtApellido"
+                android:hint="Apellido..."
+                android:inputType="textPersonName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/txtNombre"
+                android:layout_marginTop="19dp"
+                android:ems="10"/>
+
+            <EditText
+                android:id="@+id/txtCelular"
+                android:hint="Celular"
+                android:inputType="number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/txtApellido"
+                android:layout_marginTop="19dp"
+                android:ems="10"/>
+
+            <EditText
+                android:id="@+id/txtCI"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/txtCelular"
+                android:layout_marginTop="19dp"
+                android:ems="10"
+                android:hint="Cedula sin puntos ni digito verificador"
+                android:inputType="number" />
+
+            <Button
+                android:id="@+id/btnAceptar"
+                android:text="Aceptar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/txtCI"
+                android:layout_marginLeft="58dp"
+                android:layout_marginStart="58dp"
+                android:layout_marginTop="60dp"
+                android:shadowColor="#FFFFFF"
+                android:textColor="#ffffff"
+                android:backgroundTint="#390371" />
+
+            <Button
+                android:id="@+id/btnCancelar"
+                android:text="Cancelar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:shadowColor="#FFFFFF"
+                android:textColor="#ffffff"
+                android:backgroundTint="#390371"
+                android:layout_marginRight="58dp"
+                android:layout_marginEnd="58dp"
+                android:layout_marginTop="60dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbarStyle="insideOverlay">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <EditText
+                android:id="@+id/etxtTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/etxtDia"
+                android:layout_alignStart="@+id/etxtDia"
+                android:layout_below="@+id/etxtDia"
+                android:layout_marginTop="21dp"
+                android:ems="10"
+                android:hint="ingrese la hora de la consulta"
+                android:inputType="time" />
+
+            <EditText
+                android:id="@+id/etxtDia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="ingrese el dia de la consulta"
+                android:inputType="date"
+                android:layout_below="@+id/spinner"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="51dp" />
+
+            <TextView
+                android:id="@+id/txtTitulo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="8dp"
+                android:text="Agendar Consulta"
+                android:textColor="#390371"
+                android:textSize="24sp" />
+
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/txtTitulo"
+                android:layout_marginTop="64dp"
+                android:background="@android:drawable/btn_dropdown"
+                android:spinnerMode="dropdown"  />
+
+            <Button
+                android:id="@+id/btnAgendar"
+                android:text="Agendar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/etxtTime"
+                android:layout_marginLeft="58dp"
+                android:layout_marginStart="58dp"
+                android:layout_marginTop="60dp"
+                android:shadowColor="#FFFFFF"
+                android:textColor="#ffffff"
+                android:backgroundTint="#390371" />
+
+            <Button
+                android:id="@+id/btnCancela"
+                android:text="Cancelar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:shadowColor="#FFFFFF"
+                android:textColor="#ffffff"
+                android:backgroundTint="#390371"
+                android:layout_marginRight="58dp"
+                android:layout_marginEnd="58dp"
+                android:layout_alignBaseline="@+id/btnAgendar"
+                android:layout_alignBottom="@+id/btnAgendar"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>

@@ -15,12 +15,47 @@
         android:layout_height="0dp"
         android:layout_weight="1">
 
-        <Button
-            android:id="@+id/btnAgregar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:text="Button" />
+        <RelativeLayout
+            android:id="@+id/relative"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <TextView
+                android:id="@+id/message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:text="@string/title_pacientes"
+                android:textAlignment="center"
+                android:textColor="#390371"/>
+
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/btnAgregar"
+                android:layout_below="@+id/message"
+                android:id="@+id/lista"
+                android:footerDividersEnabled="true"
+                android:headerDividersEnabled="true"/>
+
+            <Button
+                android:id="@+id/btnAgregar"
+                android:shadowColor="#FFFFFF"
+                android:textColor="#ffffff"
+                android:backgroundTint="#390371"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Agregar"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="8dp" />
+
+        </RelativeLayout>
 
     </FrameLayout>
 
@@ -30,7 +65,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:background="?android:attr/windowBackground"
-        android:onClick="onNavigationItemSelected"
         app:menu="@menu/navigation"/>
 
 </LinearLayout>
