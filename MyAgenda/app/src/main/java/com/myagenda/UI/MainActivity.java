@@ -1,4 +1,4 @@
-package com.myagenda;
+package com.myagenda.UI;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.myagenda.R;
+import com.myagenda.UI.AgregarConsulta;
+import com.myagenda.UI.AgregarPaciente;
 
 public class MainActivity extends AppCompatActivity {
 

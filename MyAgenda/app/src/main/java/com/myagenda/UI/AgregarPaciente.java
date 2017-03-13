@@ -1,4 +1,4 @@
-package com.myagenda;
+package com.myagenda.UI;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -9,7 +9,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.Console;
+import com.myagenda.R;
 
 public class AgregarPaciente extends AppCompatActivity {
 
