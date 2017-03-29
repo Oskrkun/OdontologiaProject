@@ -4,17 +4,21 @@ import android.content.ContentValues;
 
 import com.myagenda.DA.PacienteContract;
 
+import java.util.ArrayList;
+
 /**
  * Created by lulaa on 12/3/2017.
  */
 
 public class Paciente {
 
+
     //Atributos
     private String nombre;
     private String apellido;
     private int celular;
     private int cedula;
+    ArrayList<Paciente> pacientes;
 
     //constructor
     public Paciente(String nombre, String apellido, Integer celular, Integer cedula){
@@ -22,6 +26,14 @@ public class Paciente {
         this.nombre = nombre;
         this.celular = celular;
         this.cedula = cedula;
+    }
+
+    public Paciente(String nombre, String apellido, Integer celular, Integer cedula, ArrayList<Paciente> pacientes){
+        this.apellido = apellido;
+        this.nombre = nombre;
+        this.celular = celular;
+        this.cedula = cedula;
+        this.pacientes = pacientes;
     }
 
     //Getters and Setters
@@ -56,6 +68,16 @@ public class Paciente {
     public int getCedula() {
         return cedula;
     }
+
+    public void setPacientes(ArrayList<Paciente> pacientes) {
+        this.pacientes = pacientes;
+    }
+
+    public ArrayList<Paciente> getPacientes() {
+        return pacientes;
+    }
+
+
 
     //Operaciones
     public ContentValues toContentValues() {

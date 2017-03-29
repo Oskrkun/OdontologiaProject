@@ -1,11 +1,14 @@
 package com.myagenda.DA;
 
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import com.myagenda.BL.MyAgenda;
 import com.myagenda.Model.Paciente;
+
+import java.util.ArrayList;
 
 /**
  * Created by lulaa on 12/3/2017.
@@ -92,5 +95,57 @@ public class ControladorDA extends SQLiteOpenHelper {
                 ConsultaContract.toContentValues(ciPaciente, fecha));
         return res;
     }
+
+    //Obtengo todos los pacientes
+    public ArrayList<Paciente> pacientesGet(){
+        String queryString = "SELECT * FROM paciente";
+        Cursor c = null;
+        ArrayList<Paciente> res = new ArrayList<>();
+        String nombre;
+        String apellido;
+        int celular = -1;
+        int cedula = -1;
+
+        try {
+            c = this.getReadableDatabase().rawQuery(queryString, null);
+
+            while (c.moveToNext()) {
+                nombre = c.getString(c.getColumnIndex("nombre"));
+                apellido = c.getString(c.getColumnIndex("apellido"));
+                celular = c.getInt(c.getColumnIndex("celular"));
+                cedula = c.getInt(c.getColumnIndex("cedula"));
+                res.add(new Paciente(nombre, apellido, celular, cedula));
+            }
+        }catch (Exception ex) {
+            Log.i("DB_ERROR", "Error:" + ex.getMessage());
+        }finally{
+            if (c != null) c.close();
+            return res;
+        }
+    }
+
+    //Obtengo paciente segun CI
+    public Paciente obtenerPacienteByCI(int cedula) {
+
+        String query = "select * from usuario WHERE cedula = '" + cedula + "';";
+        Paciente p = null;
+
+        Cursor c = null;
+        try {
+            c = this.getReadableDatabase().rawQuery(query, null);
+
+            if (c != null && c.getCount() > 0) {
+                c.moveToFirst();
+                p = new Paciente(c.getString(c.getColumnIndex("nombre")), c.getString(c.getColumnIndex("apellido")), c.getInt(c.getColumnIndex("celular")), c.getInt(c.getColumnIndex("cedula")));
+            }
+        }catch(Exception ex){
+            Log.i("ERROR_DB","Error: " + ex.getMessage());
+            p = null;
+        }finally {
+            if (c != null) c.close();
+            return p;
+        }
+    }
+
 
 }

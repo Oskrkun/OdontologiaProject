@@ -39,7 +39,7 @@
                 android:layout_height="match_parent"
                 android:layout_above="@+id/btnAgregar"
                 android:layout_below="@+id/message"
-                android:id="@+id/lista"
+                android:id="@android:id/list"
                 android:footerDividersEnabled="true"
                 android:headerDividersEnabled="true"/>
 

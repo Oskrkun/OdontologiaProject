@@ -1,5 +1,7 @@
 package com.myagenda.Model;
 
+import java.util.ArrayList;
+
 /**
  * Created by lulaa on 12/3/2017.
  */
@@ -11,6 +13,7 @@ public class Consulta {
     String Nombre;
     String Apellido;
     int ciPaciente;
+    ArrayList<Consulta> Consultas;
 
     //Constructor
     public Consulta (String nombre, String apellido, int ciPaciente, String date) {
@@ -18,6 +21,14 @@ public class Consulta {
         this.Apellido = apellido;
         this.ciPaciente = ciPaciente;
         this.Date = date;
+    }
+
+    public Consulta (String nombre, String apellido, int ciPaciente, String date, ArrayList<Consulta> Consultas) {
+        this.Nombre = nombre;
+        this.Apellido = apellido;
+        this.ciPaciente = ciPaciente;
+        this.Date = date;
+        this.Consultas = Consultas;
     }
 
     //Getters and Setters

@@ -7,12 +7,16 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import com.myagenda.DA.ControladorDA;
+import com.myagenda.Model.Paciente;
 import com.myagenda.R;
-import com.myagenda.UI.AgregarConsulta;
-import com.myagenda.UI.AgregarPaciente;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.navigation_home:
                 mTextMessage.setText(R.string.title_pacientes);
+                inicializarPacientes();
                 return true;
             case R.id.navigation_notifications:
                 mTextMessage.setText(R.string.title_consultas);
@@ -69,4 +74,36 @@ public class MainActivity extends AppCompatActivity {
             startActivity(explicitIntent);
         }
     }
+
+    //carga la lista de pacientes
+    private void inicializarPacientes() {
+
+        final ArrayList<Paciente> pacientes  = ControladorDA.getInstance().pacientesGet();
+
+        ListView listView = (ListView) findViewById(android.R.id.list);
+
+        ListViewAdapterPacientes adapter = new ListViewAdapterPacientes(this,pacientes);
+
+        listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                //cuando presiono un paciente de la lista muestro la activity detallePaciente
+                int cedula = pacientes.get(position).getCedula();
+                Paciente paciente = ControladorDA.getInstance().obtenerPacienteByCI(cedula);
+
+                Intent intent = new Intent(getApplicationContext(), DetallePaciente.class);
+                intent.putExtra("nombrePaciente", paciente.getNombre());
+                intent.putExtra("apellidoPaciente", paciente.getApellido());
+                intent.putExtra("celularPaciente", paciente.getCelular());
+                intent.putExtra("cedulaPaciente", cedula);
+
+                startActivity(intent);
+
+            }
+        });
+    }
+
+
 }

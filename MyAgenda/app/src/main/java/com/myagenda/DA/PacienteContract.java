@@ -15,6 +15,6 @@ public class PacienteContract {
         public static final String NOMBRE = "nombre";
         public static final String APELLIDO = "apellido";
         public static final String CELULAR = "celular";
-        public static final String CEDULA = "CEDULA";
+        public static final String CEDULA = "cedula";
     }
 }
